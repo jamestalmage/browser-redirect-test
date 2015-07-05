@@ -1,0 +1,37 @@
+{
+  "name": "browser-redirect-test",
+  "version": "0.0.0",
+  "description": "Test how your browser responds to various redirect codes.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "node lib/server.js",
+    "bundle": "browserify lib/browser.js -o bundle.js -d",
+    "watch": "watchify lib/browser.js -o bundle.js -d -v"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamestalmage/browser-redirect-test.git"
+  },
+  "keywords": [
+    "browser",
+    "redirect",
+    "test"
+  ],
+  "author": "James Talmage <james@talmage.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jamestalmage/browser-redirect-test/issues"
+  },
+  "homepage": "https://github.com/jamestalmage/browser-redirect-test#readme",
+  "dependencies": {
+    "angular": "^1.4.1",
+    "bluebird": "^2.9.32",
+    "browserify": "^10.2.4",
+    "concat-stream": "^1.5.0",
+    "express": "^4.13.0"
+  },
+  "devDependencies": {
+    "watchify": "^3.2.3"
+  }
+}

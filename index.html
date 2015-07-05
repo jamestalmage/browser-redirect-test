@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="browser-redirect-test">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body ng-controller="TestResultsController as test">
+
+<table border="1">
+  <thead>
+  <tr>
+    <th></th>
+    <th ng-repeat="code in test.codes">{{code | uppercase}}</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="method in test.methods">
+    <th>{{method | uppercase}}</th>
+    <td ng-repeat="code in test.codes">
+      <span ng-if="!test.result[method][code].error">
+        code: {{test.result[method][code].resultingCode}}
+        method: {{(test.result[method][code].secondRequest.method || 'x') | uppercase}}
+      </span>
+      <span ng-if="test.result[method][code].error">
+        {{test.result[method][code].error}}
+      </span>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<script src="bundle.js"></script>
+
+</body>
+</html>

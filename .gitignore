@@ -1,0 +1,9 @@
+
+### Basic Node template
+*.log
+/coverage
+/node_modules
+/.idea
+/sandbox.*
+/sandbox/
+
