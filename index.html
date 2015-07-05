@@ -16,7 +16,7 @@
   <tbody>
   <tr ng-repeat="method in test.methods">
     <th>{{method | uppercase}}</th>
-    <td ng-repeat="code in test.codes" result-cell result="test.result[method][code]">
+    <td ng-repeat="code in test.codes" result-cell="test.result[method][code]">
     </td>
   </tr>
   </tbody>
@@ -24,8 +24,8 @@
 
 <script type="text/ng-template" id="/cell.html">
   <span ng-if="!result.error">
-        code: {{result.resultingCode}}
-        method: {{(result.secondRequest.method || 'x') | uppercase}}
+        {{result.resultingCode}} /
+        {{(result.secondRequest.method || 'x') | uppercase}}
       </span>
   <span ng-if="result.error">
         {{result.error}}
