@@ -16,18 +16,21 @@
   <tbody>
   <tr ng-repeat="method in test.methods">
     <th>{{method | uppercase}}</th>
-    <td ng-repeat="code in test.codes">
-      <span ng-if="!test.result[method][code].error">
-        code: {{test.result[method][code].resultingCode}}
-        method: {{(test.result[method][code].secondRequest.method || 'x') | uppercase}}
-      </span>
-      <span ng-if="test.result[method][code].error">
-        {{test.result[method][code].error}}
-      </span>
+    <td ng-repeat="code in test.codes" result-cell result="test.result[method][code]">
     </td>
   </tr>
   </tbody>
 </table>
+
+<script type="text/ng-template" id="/cell.html">
+  <span ng-if="!result.error">
+        code: {{result.resultingCode}}
+        method: {{(result.secondRequest.method || 'x') | uppercase}}
+      </span>
+  <span ng-if="result.error">
+        {{result.error}}
+      </span>
+</script>
 
 <script src="bundle.js"></script>
 
