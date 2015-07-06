@@ -8,7 +8,7 @@
   <tbody>
   <tr ng-repeat="method in methods">
     <th>{{method | uppercase}}</th>
-    <td ng-repeat="code in codes" result-cell="result[method][code]">
+    <td ng-repeat="code in codes" result-cell="result[method][code]" hover="parentHover({method:method, code:code})">
     </td>
   </tr>
   </tbody>

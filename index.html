@@ -18,8 +18,10 @@
     user-agent: {{ctrl.result.agent}}
   </p>
 
-  <div result-table="ctrl.tableData()" methods="ctrl.methods" codes="ctrl.codes"></div>
+  <div result-table="ctrl.tableData()" methods="ctrl.methods" codes="ctrl.codes" hover="ctrl.hover(method, code)"></div>
 </div>
+
+<pre>{{ctrl.hoverData() | json}}</pre>
 
 <script src="bundle.js"></script>
 
