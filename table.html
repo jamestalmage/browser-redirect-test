@@ -1,0 +1,15 @@
+<table border="1">
+  <thead>
+  <tr>
+    <th></th>
+    <th ng-repeat="code in codes">{{code | uppercase}}</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="method in methods">
+    <th>{{method | uppercase}}</th>
+    <td ng-repeat="code in codes" result-cell="result[method][code]">
+    </td>
+  </tr>
+  </tbody>
+</table>

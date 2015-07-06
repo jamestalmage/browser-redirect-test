@@ -4,33 +4,9 @@
   <meta charset="UTF-8">
   <title></title>
 </head>
-<body ng-controller="TestResultsController as test">
+<body ng-controller="RunTestController as ctrl">
 
-<table border="1">
-  <thead>
-  <tr>
-    <th></th>
-    <th ng-repeat="code in test.codes">{{code | uppercase}}</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr ng-repeat="method in test.methods">
-    <th>{{method | uppercase}}</th>
-    <td ng-repeat="code in test.codes" result-cell="test.result[method][code]">
-    </td>
-  </tr>
-  </tbody>
-</table>
-
-<script type="text/ng-template" id="/cell.html">
-  <span ng-if="!result.error">
-        {{result.resultingCode}} /
-        {{(result.secondRequest.method || 'x') | uppercase}}
-      </span>
-  <span ng-if="result.error">
-        {{result.error}}
-      </span>
-</script>
+<div result-table="ctrl.result" methods="ctrl.methods" codes="ctrl.codes"></div>
 
 <script src="bundle.js"></script>
 

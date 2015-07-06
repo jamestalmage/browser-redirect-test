@@ -1,0 +1,7 @@
+<span ng-if="!result.error">
+  {{result.resultingCode}} /
+  {{(result.secondRequest.method || 'x') | uppercase}}
+</span>
+<span ng-if="result.error">
+  {{result.error}}
+</span>
