@@ -21,7 +21,7 @@
   <div result-table="ctrl.tableData()" methods="ctrl.methods" codes="ctrl.codes" hover="ctrl.hover(method, code)"></div>
 </div>
 
-<div ng-if="ctrl.hoverData()" ng-repeat="agentData in ctrl.hoverData()">
+<div ng-repeat="agentData in ctrl.hoverData('firstRun')">
   <img ng-src="/browser-icon?agent={{agentData.agentString | uricomponent}}">
   <span ng-repeat="request in agentData.serverLog">
     <span ng-if="$index === 0">Initial</span>
