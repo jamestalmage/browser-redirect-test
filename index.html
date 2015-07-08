@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title></title>
+  <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body ng-controller="RunTestController as ctrl">
 
@@ -18,9 +19,18 @@
 </select>
 
 <div ng-show="ctrl.started || ctrl.keys.length">
-  <div result-table="ctrl.tableData()" methods="ctrl.methods" codes="ctrl.codes" hover="ctrl.hover(method, code)"></div>
+  <div result-table="ctrl.tableData()"
+       methods="ctrl.methods"
+       codes="ctrl.codes"
+       hover="ctrl.hover(method, code)"
+       lock="ctrl.hoverLock(method, code)"
+       selected="ctrl.selected(method, code)"
+       locked="ctrl.hoverLocked"
+    ></div>
 </div>
 
+
+<h1>{{ctrl.hoverMethod}} {{ctrl.hoverCode}}</h1>
 <h2>First Run</h2>
 <div describe-agent="ctrl.hoverData('firstRun')"></div>
 <h2>Second Run</h2>

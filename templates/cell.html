@@ -1,4 +1,4 @@
-<div ng-mouseover="hover()">
+<div ng-mouseover="hover()" ng-click="lock()">
   <span ng-if="!result.error">
     {{result.resultingCode}} /
     {{(result.secondRequest.method || 'x') | uppercase}}

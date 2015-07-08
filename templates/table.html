@@ -1,4 +1,4 @@
-<table border="1">
+<table border="2px solid">
   <thead>
   <tr>
     <th></th>
@@ -8,7 +8,16 @@
   <tbody>
   <tr ng-repeat="method in methods">
     <th>{{method | uppercase}}</th>
-    <td ng-repeat="code in codes" result-cell="result[method][code]" hover="parentHover({method:method, code:code})">
+    <td
+      ng-class="{
+        hoverSelect:selected({method:method, code:code}),
+        hoverLock:locked() && selected({method:method, code:code})
+      }"
+      ng-repeat="code in codes"
+      result-cell="result[method][code]"
+      hover="parentHover({method:method, code:code})"
+      lock="parentLock({method:method, code:code})"
+      >
     </td>
   </tr>
   </tbody>
