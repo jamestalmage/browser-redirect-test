@@ -1,4 +1,7 @@
-<img ng-src="/browser-icon/{{agentData.agentString | uricomponent}}">
+<div ng-repeat="agentData in combinedAgentData">
+
+<img ng-src="{{ctrl.iconUrl(agentData.agentString)}}">
+v{{agentData.agent.major}}:
 
 <span ng-if="!agentData.serverLog || !agentData.serverLog.length || agentData.serverLog[0].path !== '/first'">From Cache -> </span>
 <span ng-repeat="request in agentData.serverLog">
@@ -12,3 +15,4 @@
 <b> Browser Sees </b>
 ({{agentData.browserResult.code}}):
 {{agentData.browserResult.body}}
+</div>
