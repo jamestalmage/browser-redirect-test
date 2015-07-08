@@ -1,10 +1,13 @@
 <img ng-src="/browser-icon?agent={{agentData.agentString | uricomponent}}">
+
+<span ng-if="!agentData.serverLog || !agentData.serverLog.length || agentData.serverLog[0].path !== '/first'">From Cache -> </span>
 <span ng-repeat="request in agentData.serverLog">
-    <span ng-if="$index === 0">Initial</span>
-    <b ng-if="$index !== 0">-&gt;</b>
-    {{request.method | uppercase}}
-    <span ng-if="$index !== 0">at {{request.path.replace('/','')}} location</span>
-  </span>
+  <span ng-if="$index === 0 && request.path === '/first'">Initial</span>
+  <b ng-if="$index !== 0">-&gt;</b>
+  {{request.method | uppercase}}
+  <span ng-if="$index !== 0 || request.path !== '/first'">at {{request.path.replace('/','')}} location</span>
+</span>
+
 <b>-></b> Done ...
 <b> Browser Sees </b>
 ({{agentData.browserResult.code}}):
