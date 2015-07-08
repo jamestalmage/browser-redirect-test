@@ -21,19 +21,10 @@
   <div result-table="ctrl.tableData()" methods="ctrl.methods" codes="ctrl.codes" hover="ctrl.hover(method, code)"></div>
 </div>
 
-<div ng-repeat="agentData in ctrl.hoverData('firstRun')">
-  <img ng-src="/browser-icon?agent={{agentData.agentString | uricomponent}}">
-  <span ng-repeat="request in agentData.serverLog">
-    <span ng-if="$index === 0">Initial</span>
-    <b ng-if="$index !== 0">-&gt;</b>
-    {{request.method | uppercase}}
-    <span ng-if="$index !== 0">at {{request.path.replace('/','')}} location</span>
-  </span>
-  <b>-></b> Done ...
-  <b> Browser Sees </b>
-  ({{agentData.browserResult.code}}):
-  {{agentData.browserResult.body}} Body
-</div>
+<h2>First Run</h2>
+<div ng-repeat="agentData in ctrl.hoverData('firstRun')" describe-agent="agentData"></div>
+<h2>Second Run</h2>
+<div ng-repeat="agentData in ctrl.hoverData('secondRun')" describe-agent="agentData"></div>
 
 <script src="bundle.js"></script>
 
