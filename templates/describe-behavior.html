@@ -1,4 +1,4 @@
-<img ng-src="/browser-icon?agent={{agentData.agentString | uricomponent}}">
+<img ng-src="/browser-icon/{{agentData.agentString | uricomponent}}">
 
 <span ng-if="!agentData.serverLog || !agentData.serverLog.length || agentData.serverLog[0].path !== '/first'">From Cache -> </span>
 <span ng-repeat="request in agentData.serverLog">
