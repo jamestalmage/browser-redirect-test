@@ -61,7 +61,11 @@ describe('most-common', function() {
           value: 'Cache',
           common: true
         }
-      ]
+      ],
+      length: {
+        value: 1,
+        common: false
+      }
     });
 
     assert.deepEqual(mc.flattened.agent2, {
@@ -92,7 +96,11 @@ describe('most-common', function() {
           value: 'GET',
           common: true
         }
-      ]
+      ],
+      length: {
+        value: 2,
+        common: true
+      }
     });
   });
 });

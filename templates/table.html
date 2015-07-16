@@ -11,7 +11,8 @@
     <td
       ng-class="{
         hoverSelect:selected({method:method, code:code}),
-        hoverLock:locked() && selected({method:method, code:code})
+        hoverLock:locked() && selected({method:method, code:code}),
+        notUniversal: !universal({method:method, code:code})
       }"
       ng-repeat="code in codes"
       result-cell="result[method][code]"
