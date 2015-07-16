@@ -1,18 +1,31 @@
-<div ng-repeat="agentData in combinedAgentData">
+<div ng-repeat="(agentIndex, agentData) in combinedAgentData">
 
-<img ng-src="{{ctrl.iconUrl(agentData.agentString)}}">
-v{{agentData.agent.major}}:
+  <img ng-src="{{ctrl.iconUrl(agentData.agentString)}}">
+  v{{agentData.agent.major}}.{{agentData.agent.minor}}.{{agentData.agent.patch}}:
 
-<span ng-if="!agentData.serverLog || !agentData.serverLog.length || agentData.serverLog[0].path !== '/first'">From Cache -> </span>
-<span ng-repeat="request in agentData.serverLog">
-  <span ng-if="$index === 0 && request.path === '/first'">Initial</span>
-  <b ng-if="$index !== 0">-&gt;</b>
-  {{request.method | uppercase}}
-  <span ng-if="$index !== 0 || request.path !== '/first'">at {{request.path.replace('/','')}} location</span>
-</span>
+  <span ng-repeat="method in ctrl.mc.flattened[agentIndex].method">
+    <b ng-if="$index !== 0">-&gt;</b>
 
-<b>-></b> Done ...
-<b> Browser Sees </b>
-({{agentData.browserResult.code}}):
-{{agentData.browserResult.body}}
+    <span ng-class="{red: !method.common }">
+      {{method.value | uppercase}}
+    </span>
+    at
+    <span ng-class="{red: !ctrl.mc.flattened[agentIndex].path[$index].common}">
+      {{ctrl.mc.flattened[agentIndex].path[$index].value.replace('/','')}}
+    </span>
+    location
+  </span>
+
+  <b>-></b>
+  <span ng-class="{red: !ctrl.mc.flattened[agentIndex].length.common }">
+    Done
+  </span>
+  ...
+  <b> Browser Sees </b>
+  (<span ng-class="{red: !ctrl.mc.flattened[agentIndex].code.common }">
+  {{ctrl.mc.flattened[agentIndex].code.value}}
+  </span>):
+  <span ng-class="{red: !ctrl.mc.flattened[agentIndex].body.common }">
+    {{ctrl.mc.flattened[agentIndex].body.value}}
+  </span>
 </div>

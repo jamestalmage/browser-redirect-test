@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node lib/server.js",
+    "start": "npm run bundle && node lib/server.js",
     "bundle": "browserify lib/browser.js -o bundle.js -d",
     "watch": "watchify lib/browser.js -o bundle.js -d -v"
   },
@@ -33,11 +33,14 @@
     "debug": "^2.2.0",
     "express": "^4.13.0",
     "foreach": "^2.0.5",
+    "most-frequent": "0.0.1",
     "request": "^2.58.0",
     "useragent": "^2.1.7",
     "yamlparser": "0.0.2"
   },
   "devDependencies": {
+    "istanbul": "^0.3.17",
+    "mocha": "^2.2.5",
     "watchify": "^3.2.3"
   }
 }

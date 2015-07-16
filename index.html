@@ -30,7 +30,7 @@
 </div>
 
 
-<h1>{{ctrl.hoverMethod}} {{ctrl.hoverCode}}</h1>
+<h1>{{ctrl.hoverMethod | uppercase}} {{ctrl.hoverCode}} {{ctrl.codeMessages[ctrl.hoverCode]}}</h1>
 <h2>First Run</h2>
 <div describe-agent="ctrl.hoverData('firstRun')"></div>
 <h2>Second Run</h2>
