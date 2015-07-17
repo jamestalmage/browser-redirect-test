@@ -7,16 +7,26 @@
 </head>
 <body ng-controller="RunTestController as ctrl">
 
-<button ng-hide="ctrl.running" ng-click="ctrl.run()">run the tests!</button>
-<button ng-click="ctrl.view()">view all test results!</button>
+<div>
+  <button ng-hide="ctrl.running" ng-click="ctrl.run()">run the tests!</button>
+  <button ng-click="ctrl.view()">view all test results!</button>
 
-<input type="radio" ng-model="ctrl.selectedRun" value="firstRun"> first Run
-<input type="radio" ng-model="ctrl.selectedRun" value="secondRun"> second Run
+  <input type="radio" ng-model="ctrl.selectedRun" value="firstRun"> first Run
+  <input type="radio" ng-model="ctrl.selectedRun" value="secondRun"> second Run
 
 
-<select ng-show="ctrl.keys.length" ng-model="ctrl.selectedKey">
-  <option ng-repeat="key in ctrl.keys" value="{{key}}">{{key}}</option>
-</select>
+  <select ng-show="ctrl.keys.length" ng-model="ctrl.selectedKey">
+    <option ng-repeat="key in ctrl.keys" value="{{key}}">{{key}}</option>
+  </select>
+</div>
+
+<div ng-repeat="key in ctrl.keys">
+  <label >
+    <input type="checkbox"  ng-model="ctrl.filter[key]" ng-change="ctrl.updateFilter()">
+    {{key}}
+  </label>
+</div>
+
 
 <div ng-show="ctrl.started || ctrl.keys.length">
   <div result-table="ctrl.tableData()"
