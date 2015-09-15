@@ -18,6 +18,6 @@ one browser handles that `method`/`redirect code` combo differently. (The grid c
 
 ![Screenshot](https://rawgit.com/jamestalmage/browser-redirect-test/master/screenshot.png)
 
-The browser fetches each resource runs twice (to identify caching behavior). I have experimented with 
+The browser fetches each resource runs twice (to identify caching behavior). I have NOT experimented with 
 setting specific cache header values from the server yet (I just use whatever `express` sets as the default). 
 That remains a TODO.
