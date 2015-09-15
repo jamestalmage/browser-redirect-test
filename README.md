@@ -8,8 +8,9 @@
 
 **NOTE: The interface is simple, but not the most intuitive, read below**
 
-The report will show a grid of request `methods` and `redirect codes`, as well as the most common
-behavior. You can mouse over individual grid cells, and a detailed report appears below the table (clicking
+The report will show a grid of request `methods` and `redirect codes`, ~~as well as the most common
+behavior~~(not true, open detailed reports to figure out what is most common).
+You can mouse over individual grid cells, and a detailed report appears below the table (clicking
 a cell will lock that cells report on, click again to unlock).
 
 Grid items in black mean there is 100% conformity across browsers. Red means at least
